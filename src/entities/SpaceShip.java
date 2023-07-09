@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package clases;
+package entities;
 
 /**
  *
@@ -13,11 +13,13 @@ public abstract class SpaceShip implements ShipInterface{
     private final String color;
     private final float weight;
     private float height;
+    private float velocity;
         
     protected SpaceShip(String color, float weight) {
         this.color = color;
         this.weight = weight;
         height = 0;
+        velocity = 0;
     }
 
     protected static String getOrigin() {
@@ -37,7 +39,15 @@ public abstract class SpaceShip implements ShipInterface{
     }
 
     protected void setHeight(float height) {
-        this.height = height;
+        this.height += height;
+    }
+
+    public float getVelocity() {
+        return velocity;
+    }
+
+    public void setVelocity(float velocity) {
+        this.velocity = velocity;
     }
       
     @Override
@@ -46,13 +56,12 @@ public abstract class SpaceShip implements ShipInterface{
     }
         
     @Override
-    public void Launch(int velocity){
-        if(velocity <= 100) height += 1000;
-        else if (velocity <= 200) height += 2500; 
-        else height += 4000;
+    public void Launch(){
+        velocity = 300;
+        height += 25;        
     }
     
-    public abstract void Accelerate();
+    public abstract void Accelerate(int rpm);
     public abstract void stopLaunch();
     
 }
