@@ -13,24 +13,16 @@ public class ShuttleSpaceShip extends SpaceShip {
     public ShuttleSpaceShip(String color, float weight) {
         super(color, weight);
     }
-
+            
     @Override
-    public void Accelerate(int rpm) {
-        if (rpm == 10000) {
-            this.setVelocity(600);
-            this.setHeight(50);            
-        } else if (rpm == 15000) {
-            this.setVelocity(900);
-            this.setHeight(75);            
-        } else {
-            this.setVelocity(1200);
-            this.setHeight(100);            
-        }
-    }
+    public void Launch(){
+        this.setVelocity(912);
+        this.setHeight(76);        
+    }    
 
     @Override
     public void stopLaunch() {
-        this.setVelocity(200);        
+        this.setVelocity(200);
     }
 
 }

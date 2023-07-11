@@ -22,23 +22,23 @@ public abstract class SpaceShip implements ShipInterface{
         velocity = 0;
     }
 
-    protected static String getOrigin() {
+    public static String getOrigin() {
         return origin;
     }
 
-    protected String getColor() {
+    public String getColor() {
         return color;
     }
 
-    protected float getWeight() {
+    public float getWeight() {
         return weight;
     }
 
-    protected float getHeight() {
+    public float getHeight() {
         return height;
     }
 
-    protected void setHeight(float height) {
+    public void setHeight(float height) {
         this.height += height;
     }
 
@@ -54,14 +54,8 @@ public abstract class SpaceShip implements ShipInterface{
     public boolean isOutOfOrbit(){
         return height>10000000.0;
     }
-        
-    @Override
-    public void Launch(){
-        velocity = 300;
-        height += 25;        
-    }
-    
-    public abstract void Accelerate(int rpm);
+
+    public abstract void Launch();
     public abstract void stopLaunch();
     
 }

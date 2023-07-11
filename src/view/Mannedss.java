@@ -4,7 +4,7 @@
  */
 package view;
 
-import entities.ShuttleSpaceShip;
+import entities.MannedSpaceShip;
 import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,14 +14,14 @@ import javax.swing.SwingWorker;
  *
  * @author saymo
  */
-public class Shuttless extends javax.swing.JFrame {
+public class Mannedss extends javax.swing.JFrame {
 
     /**
      * Creates new form Shuttless
      */
-    public Shuttless() {
-        newShuttleSS = new ShuttleSpaceShip("blue-gray", 1000);
-        newShuttleSS.Launch();
+    public Mannedss() {
+        newMannedSS = new MannedSpaceShip("blue", 550);
+        newMannedSS.Launch();
         count = 1;
         initComponents();
         lblTime.setVisible(false);
@@ -169,7 +169,7 @@ public class Shuttless extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 0, 160, 370));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/spaceship.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/mannedss.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, -1, -1));
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/bg1.png"))); // NOI18N
@@ -231,7 +231,7 @@ public class Shuttless extends javax.swing.JFrame {
     private javax.swing.JLabel txtSpeed;
     private javax.swing.JLabel txtTime;
     // End of variables declaration//GEN-END:variables
-    private final ShuttleSpaceShip newShuttleSS;
+    private final MannedSpaceShip newMannedSS;
     int count;
 
     private void Launch() {
@@ -245,18 +245,18 @@ public class Shuttless extends javax.swing.JFrame {
                 try {
                     Thread.sleep(2000);
                 } catch (InterruptedException ex) {
-                    Logger.getLogger(Shuttless.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(Mannedss.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                while (newShuttleSS.getHeight() < 10000.00) {
-                    if (newShuttleSS.getHeight() <= 200) {
+                while (newMannedSS.getHeight() < 10000.00) {
+                    if (newMannedSS.getHeight() <= 200) {
                         txtAtm.setText("Troposphere");                        
-                    } else if(newShuttleSS.getHeight() <= 500){
+                    } else if(newMannedSS.getHeight() <= 500){
                         txtAtm.setText("Stratosphere");
                         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/bg2.jpg")));
-                    } else if(newShuttleSS.getHeight() <= 800){
+                    } else if(newMannedSS.getHeight() <= 800){
                         txtAtm.setText("Mesosphere");
                         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/bg3.jpg")));
-                    } else if(newShuttleSS.getHeight() <= 1200){
+                    } else if(newMannedSS.getHeight() <= 1200){
                         txtAtm.setText("Thermosphere");
                         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/bg4.png")));
                     } else {
@@ -264,15 +264,15 @@ public class Shuttless extends javax.swing.JFrame {
                         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/bg5.jpg")));
                     }
                     // Simulates work                    
-                    txtHeight.setText(String.valueOf(newShuttleSS.getHeight()) + "km");
-                    txtSpeed.setText(String.valueOf(newShuttleSS.getVelocity()) + "km/h");
+                    txtHeight.setText(String.valueOf(newMannedSS.getHeight()) + "km");
+                    txtSpeed.setText(String.valueOf(newMannedSS.getVelocity()) + "km/h");
                     txtTime.setText(String.valueOf(count * 4 + count) + "min");
-                    newShuttleSS.setHeight(newShuttleSS.getHeight() / count);
+                    newMannedSS.setHeight(newMannedSS.getHeight() / count);
                     count++;
                     Thread.sleep(2000);
                 }                
-                newShuttleSS.stopLaunch();
-                txtSpeed.setText(String.valueOf(newShuttleSS.getVelocity()));
+                newMannedSS.stopLaunch();
+                txtSpeed.setText(String.valueOf(newMannedSS.getVelocity()));
                 txtAtm.setText("Outer space");
                 return null;
             }

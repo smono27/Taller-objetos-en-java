@@ -10,6 +10,5 @@ package entities;
  */
 public interface ShipInterface {
     String origin = "US"; 
-    boolean isOutOfOrbit();
-    void Launch();
+    boolean isOutOfOrbit();    
 }
