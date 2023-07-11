@@ -24,6 +24,7 @@ public class Shuttless extends javax.swing.JFrame {
         newShuttleSS.Launch();
         count = 1;
         initComponents();
+        lblDone.setVisible(false);
         lblTime.setVisible(false);
         txtTime.setVisible(false);
         lblAtm.setVisible(false);
@@ -39,7 +40,10 @@ public class Shuttless extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblDone = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -63,8 +67,40 @@ public class Shuttless extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblDone.setBackground(new java.awt.Color(204, 255, 255));
+        lblDone.setFont(new java.awt.Font("Yu Gothic UI Semibold", 3, 24)); // NOI18N
+        lblDone.setForeground(new java.awt.Color(102, 153, 255));
+        lblDone.setText("YOU ARE OFICCIALLY IN OUTER SPACE!");
+        lblDone.setOpaque(true);
+        getContentPane().add(lblDone, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 450, 40));
+
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel4MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanel4MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel4MouseExited(evt);
+            }
+        });
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel7.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 30)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("<");
+        jLabel7.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel7.setPreferredSize(new java.awt.Dimension(40, 40));
+        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 20, 30));
+
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 30));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -89,7 +125,7 @@ public class Shuttless extends javax.swing.JFrame {
         jLabel6.setPreferredSize(new java.awt.Dimension(40, 40));
         jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 20, 30));
 
-        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 30));
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 0, 40, 30));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 30));
 
@@ -211,6 +247,24 @@ public class Shuttless extends javax.swing.JFrame {
         evt.consume();
     }//GEN-LAST:event_btnLaunchMouseExited
 
+    private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
+        Launch openLaunch = new Launch();
+        openLaunch.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jPanel4MouseClicked
+
+    private void jPanel4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseEntered
+        jPanel4.setBackground(Color.gray);
+        jLabel7.setForeground(Color.white);
+        evt.consume();
+    }//GEN-LAST:event_jPanel4MouseEntered
+
+    private void jPanel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseExited
+        jPanel4.setBackground(Color.white);
+        jLabel7.setForeground(Color.black);
+        evt.consume();        
+    }//GEN-LAST:event_jPanel4MouseExited
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg;
     private javax.swing.JButton btnLaunch;
@@ -218,13 +272,16 @@ public class Shuttless extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel lblAtm;
+    private javax.swing.JLabel lblDone;
     private javax.swing.JLabel lblTime;
     private javax.swing.JLabel txtAtm;
     private javax.swing.JLabel txtHeight;
@@ -249,14 +306,14 @@ public class Shuttless extends javax.swing.JFrame {
                 }
                 while (newShuttleSS.getHeight() < 10000.00) {
                     if (newShuttleSS.getHeight() <= 200) {
-                        txtAtm.setText("Troposphere");                        
-                    } else if(newShuttleSS.getHeight() <= 500){
+                        txtAtm.setText("Troposphere");
+                    } else if (newShuttleSS.getHeight() <= 500) {
                         txtAtm.setText("Stratosphere");
                         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/bg2.jpg")));
-                    } else if(newShuttleSS.getHeight() <= 800){
+                    } else if (newShuttleSS.getHeight() <= 800) {
                         txtAtm.setText("Mesosphere");
                         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/bg3.jpg")));
-                    } else if(newShuttleSS.getHeight() <= 1200){
+                    } else if (newShuttleSS.getHeight() <= 1200) {
                         txtAtm.setText("Thermosphere");
                         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/bg4.png")));
                     } else {
@@ -270,21 +327,14 @@ public class Shuttless extends javax.swing.JFrame {
                     newShuttleSS.setHeight(newShuttleSS.getHeight() / count);
                     count++;
                     Thread.sleep(2000);
-                }                
+                }
                 newShuttleSS.stopLaunch();
+                lblDone.setVisible(true);
+                txtHeight.setText(String.valueOf(newShuttleSS.getHeight()) + "km");
                 txtSpeed.setText(String.valueOf(newShuttleSS.getVelocity()));
                 txtAtm.setText("Outer space");
                 return null;
             }
-//            @Override
-//            protected void process(List<Integer> chunks) {
-//                progressTextField.setText(chunks.get(chunks.size() - 1).toString());
-//            }
-//
-//            @Override
-//            protected void done() {
-//                progressTextField.setText("Done");
-//            }
         };
         worker.execute();
     }
